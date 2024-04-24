@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-import dj_database_url
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,8 +37,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
-
+ALLOWED_HOSTS = [
+    '.herokuapp.com', # Allows any subdomain of herokuapp.com for Heroku deployments
+    '127.0.0.1',      # Allows localhost by IP
+    '.gitpod.io'     # Allows any subdomain of gitpod.io
+]
 
 # Application definition
 
@@ -67,8 +71,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # CRISPY FORMS
-# These constants set bootstrap5 as the allowed template pack 
-# and as the default template pack for your project. 
+# These constants set bootstrap5 as the allowed template pack
+# and as the default template pack for your project.
 # This choice of default template pack is to match the Bootstrap5 CSS and JS
 # already used in our project base.html template.
 
